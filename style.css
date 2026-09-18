@@ -1,0 +1,80 @@
+/* ---------- Base page ---------- */
+
+:root {
+  --side-width: 160px;
+  --max-content-width: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fdfdfb;
+}
+
+.site-content {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.site-header,
+.site-footer {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.site-header nav a {
+  margin: 0 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header nav a:hover {
+  border-bottom-color: currentColor;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+/* ---------- Margin gif strips ---------- */
+/* Fixed to the viewport, so they run the full page height and sit
+   above the header/footer, not just the main content. */
+
+.side-decor {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--side-width);
+  z-index: 9999;
+  pointer-events: none; /* clicks pass through to whatever is underneath */
+
+  /* Swap this URL for your own hosted gif/image */
+  background-image: url("https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/assets/side-strip.gif");
+  background-repeat: repeat-y;
+  background-size: var(--side-width) auto;
+}
+
+.side-decor-left {
+  left: 0;
+}
+
+.side-decor-right {
+  right: 0;
+}
+
+/* Hide the strips on tablets and phones */
+@media screen and (max-width: 1024px) {
+  .side-decor {
+    display: none;
+  }
+}
