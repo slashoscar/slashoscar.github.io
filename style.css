@@ -1,20 +1,23 @@
 /* ---------- Base page ---------- */
 
 :root {
-  --side-width: 160px;
+  --side-width: 500px;
   --max-content-width: 760px;
 }
 
 * {
   box-sizing: border-box;
 }
-
+h1 {
+  color:rgb(55, 88, 22);
+  font: "Consolas";
+}
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: #1a1a1a;
-  background: #fdfdfb;
+  color: white;
+  background: #000000;
 }
 
 .site-content {
@@ -23,11 +26,31 @@ body {
   padding: 2rem 1.5rem 4rem;
 }
 
+.site-title-img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+/* Position it just right of the left margin strip, on desktop only */
+@media screen and (min-width: 2700px) {
+  .site-header h1 {
+    min-height: 30px;  /* matches your logo's max-height */
+  }
+  
+  .site-title-img {
+    position: fixed;
+    top: 150px;
+    left: 520px;  /* 500px strip + 20px gap */
+    z-index: 10000;  /* above your side strips (9999) and header */
+  }
+}
+
 .site-header,
 .site-footer {
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: .9 rem;
   text-align: center;
 }
 
@@ -59,7 +82,7 @@ section {
   pointer-events: none; /* clicks pass through to whatever is underneath */
 
   /* Swap this URL for your own hosted gif/image */
-  background-image: url("https://raw.githubusercontent.com/slashoscar/slashoscar.github.io/main/assets/nyan-cat-rainbow.gif");
+  background-image: url("https://raw.githubusercontent.com/slashoscar/slashoscar.github.io/main/assets/space.gif");
   background-repeat: repeat-y;
   background-size: var(--side-width) auto;
 }
@@ -72,8 +95,21 @@ section {
   right: 0;
 }
 
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.badge-row img {
+  display: block;
+  image-rendering: pixelated; /* keeps low-res gifs crisp instead of blurry-scaled */
+}
+
 /* Hide the strips on tablets and phones */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1700px) {
   .side-decor {
     display: none;
   }
