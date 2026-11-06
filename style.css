@@ -1,20 +1,23 @@
-/* ---------- Base page ---------- */
+
 
 :root {
-  --side-width: 160px;
-  --max-content-width: 760px;
+ --max-content-width: 760px;
+ --side-width: clamp(0px, calc((100vw - var(--max-content-width)) / 2), 500px);
 }
 
 * {
   box-sizing: border-box;
 }
-
+h1 {
+  color:rgb(55, 88, 22);
+  font: "Consolas";
+}
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: #1a1a1a;
-  background: #fdfdfb;
+  color: white;
+  background: #000000;
 }
 
 .site-content {
@@ -23,11 +26,24 @@ body {
   padding: 2rem 1.5rem 4rem;
 }
 
+.site-title-img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+
+.site-title-img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
 .site-header,
 .site-footer {
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: .9rem;
   text-align: center;
 }
 
@@ -46,9 +62,8 @@ section {
   margin-bottom: 3rem;
 }
 
-/* ---------- Margin gif strips ---------- */
-/* Fixed to the viewport, so they run the full page height and sit
-   above the header/footer, not just the main content. */
+/* margin gif */
+
 
 .side-decor {
   position: fixed;
@@ -56,10 +71,9 @@ section {
   bottom: 0;
   width: var(--side-width);
   z-index: 9999;
-  pointer-events: none; /* clicks pass through to whatever is underneath */
+  pointer-events: none; 
 
-  /* Swap this URL for your own hosted gif/image */
-  background-image: url("https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/assets/side-strip.gif");
+  background-image: url("https://raw.githubusercontent.com/slashoscar/slashoscar.github.io/main/assets/space.gif");
   background-repeat: repeat-y;
   background-size: var(--side-width) auto;
 }
@@ -72,8 +86,21 @@ section {
   right: 0;
 }
 
-/* Hide the strips on tablets and phones */
-@media screen and (max-width: 1024px) {
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.badge-row img {
+  display: block;
+  image-rendering: pixelated; 
+}
+
+
+@media screen and (max-width: 1000px) {
   .side-decor {
     display: none;
   }
