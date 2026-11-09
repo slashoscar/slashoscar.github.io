@@ -1,1 +1,1 @@
-# slashoscar.github.io
+check out slashoscar.com!
